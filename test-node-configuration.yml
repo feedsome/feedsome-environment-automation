@@ -1,0 +1,19 @@
+
+######################################################################
+#                                                                    #
+#  Main playbook for declaring a configuration actions to all nodes  #
+#                                                                    #
+######################################################################
+
+
+
+# Configure a bare server node as a DAQ server
+- hosts: testDaqSrv
+  remote_user: vagrant
+  sudo: yes
+
+  roles:
+    # feedsome test DAQ instance as server node
+    - { role: server_node }
+
+

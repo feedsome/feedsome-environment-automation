@@ -1,0 +1,7 @@
+# Main task for configuring feedsome base server nodes
+
+---
+  - name: "upgrade all packages"
+    yum:
+      name: '*'
+      state: latest
