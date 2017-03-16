@@ -3,6 +3,9 @@
 # Vagrant
 .vagrant
 
+# Ansible
+*.retry
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Maven template
 target/

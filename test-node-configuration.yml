@@ -10,10 +10,11 @@
 # Configure a bare server node as a DAQ server
 - hosts: testDaqSrv
   remote_user: vagrant
-  sudo: yes
+  become: true
 
+  # feedsome test DAQ instance as server node
   roles:
-    # feedsome test DAQ instance as server node
-    - { role: server_node }
+    - base_server_node
+    - web_server_node
 
 

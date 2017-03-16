@@ -1,0 +1,22 @@
+# Main task for configuring feedsome base server nodes
+
+---
+  - name: "install the latest version of Apache"
+    yum:
+      name: httpd
+      state: latest
+
+  - name: "enable httpd service and ensure that it's not masked"
+    systemd:
+      name: httpd
+      enabled: yes
+      masked: no
+    notify: "ensure apache is enabled"
+
+  - name: "start httpd service"
+    systemd:
+      name: httpd
+      state: started
+    notify: "ensure apache is running"
+
+
