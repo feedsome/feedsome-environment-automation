@@ -1,2 +1,4 @@
 [daq_servers]
-testDaqSrv ansible_ssh_port=2222 ansible_ssh_host=127.0.0.1
+daqSrv1 ansible_host=10.1.1.21
+daqSrv2 ansible_host=10.1.1.22
+daqSrv3 ansible_host=10.1.1.23

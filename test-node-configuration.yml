@@ -8,7 +8,7 @@
 
 
 # Configure a bare server node as a DAQ server
-- hosts: testDaqSrv
+- hosts: daq_servers
   remote_user: vagrant
   become: true
 

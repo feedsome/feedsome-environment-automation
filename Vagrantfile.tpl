@@ -29,11 +29,11 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  # config.vm.hostname = "testDaqSrv"
+  config.vm.hostname = "testDaqSrv"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "10.1.1.2"
+  config.vm.network "private_network", ip: "10.1.1.2"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -68,28 +68,11 @@ Vagrant.configure("2") do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
-  # Define a Vagrant loop that creates N instances of machines,
-  # utilized for the same purpose
-  daq_ip_gateway=20
-  DAQ_N = 3
-  (1..DAQ_N).each do |machine_id|
-    config.vm.define "daqSrv#{machine_id}" do |machine|
-      machine.vm.hostname = "daqSrv#{machine_id}"
-      machine.vm.network "private_network", ip: "10.1.1.#{daq_ip_gateway + machine_id}"
-
-#      machine.ssh.host = "10.1.1.#{daq_ip_gateway + machine_id}"
-#      machine.ssh.port = "22"
-    end
-  end
-
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-#  config.vm.provision "ansible" do |ansible|
-#    ansible.verbose = "v"
-#    ansible.limit = "all"
-#    ansible.playbook = "test-node-configuration.yml"
-#    ansible.sudo = true
-#  end
-
+  # config.vm.provision "ansible" do |ansible|
+  #   ansible.verbose = "v"
+  #   ansible.playbook = "test-node-configuration.yml"
+  # end
 end
